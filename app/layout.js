@@ -1,53 +1,69 @@
 import './globals.css';
 import 'remixicon/fonts/remixicon.css';
-
+import heroImg from '../public/img/bg-shape.png';
 import Aside from './components/Aside';
-
+import Link from 'next/link';
+import {
+  RiHome8Line,
+  RiUserLine,
+  RiSuitcaseLine,
+  RiEditBoxLine,
+  RiMailAiLine,
+  RiFacebookFill,
+  RiLinkedinFill,
+  RiPinterestFill,
+  RiInstagramLine,
+  RiTwitterXFill,
+} from 'react-icons/ri';
+import Image from 'next/image';
+import Button from './components/Button';
+import Language from './components/Language';
 export const metadata = {
-    title: 'Daryl Smith - Portfolio',
-    description: 'A personal portfolio site built with Next.js and Tailwind CSS',
+  title: 'Daryl Smith - Portfolio',
+  description: 'A personal portfolio site built with Next.js and Tailwind CSS',
 };
 
+
 export default function RootLayout({ children }) {
-    return (
-        <html lang="en">
-            <body className="bg-[#1a1a1a] flex items-center justify-center min-h-screen p-4 font-sans text-gray-300">
-                <div
-                    className="fixed inset-0 opacity-10 pointer-events-none"
-                    style={{
-                        backgroundImage: 'repeating-linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), repeating-linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000)',
-                        backgroundSize: '60px 60px',
-                        backgroundPosition: '0 0, 30px 30px',
-                    }}></div>
-                <main className="relative z-10 w-full max-w-5xl bg-[#111] grid grid-cols-1 md:grid-cols-12 overflow-hidden shadow-2xl border border-white/5">
-                    <Aside />
-                    <section className="md:col-span-8 p-8 md:p-12 flex flex-col relative">
-                        <header className="flex justify-between items-center mb-12">
-                            <div className="flex items-center space-x-3">
-                                <div className="bg-orange-500/20 p-2 rounded">
-                                    <svg className="w-5 h-5 text-orange-500" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-                                    </svg>
-                                </div>
-                                <h2 className="text-xl font-bold text-white tracking-wide">Home</h2>
-                            </div>
-                            <button className="px-6 py-2 border border-orange-500/50 rounded-full text-xs text-orange-500 hover:bg-orange-500 hover:text-black transition-all font-bold uppercase tracking-widest">Talk To Me</button>
-                        </header>
-                        {children}
+  return (
+    <html lang="en">
+      <body className="flex items-center justify-center min-h-screen p-4 font-sans text-[#979797]">
+        <div
+          className="fixed inset-0 opacity-10 pointer-events-none"
+          style={{
+            backgroundImage: `url('${heroImg.src}')`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}></div>
 
-                        <footer className="hidden md:block absolute right-[-80px] top-1/2 -translate-y-1/2 rotate-90 text-[9px] text-gray-600 uppercase tracking-[0.4em] font-medium opacity-50">© design by themefisher developed by gathugothomes</footer>
-
-                        <aside className="absolute bottom-8 right-8 flex flex-col space-y-2">
-                            <button aria-label="French" className="w-8 h-8 rounded-full bg-gray-800/50 text-[10px] font-bold text-gray-500 hover:text-white transition">
-                                FR
-                            </button>
-                            <button aria-label="English" className="w-8 h-8 rounded-full bg-orange-500 text-[10px] font-bold text-black shadow-lg shadow-orange-500/20">
-                                EN
-                            </button>
-                        </aside>
-                    </section>
-                </main>
-            </body>
-        </html>
-    );
+        <main className="relative z-10 w-[1320px]  bg-bg-2 grid grid-cols-1 md:grid-cols-12 overflow-hidden shadow-[0_0_60px_rgba(255,255,255,0.09)]">
+          <div className="md:col-span-4 min-h-[660px]">
+            <Aside />
+          </div>
+          <section className="md:col-span-8 relative flex flex-col max-h-[800px] h-full overflow-hidden">
+            <header className="bg-bg-1 py-[28px] pl-10 pr-[92px] flex justify-between items-center shrink-0">
+              <Link href="/" className="flex items-center space-x-4 group">
+                <span className="w-10 h-10 rounded-[6px] grid place-items-center bg-gradient-to-l from-primary to-secondary group-hover:from-secondary">
+                  <RiHome8Line size={24} className="text-white" />
+                </span>
+                <span className="text-2xl font-bold text-white">Home</span>
+              </Link>
+              <Button text="Talk To Me" href="/" variant="outline" />
+            </header>
+            <div className="py-10 px-12 mr-[92px] flex-1 overflow-y-auto custom-scrollbar">
+              {children}
+            </div>
+            <div className="absolute top-[10%] clip-sidebar-right right-0 w-[92px] h-full flex flex-col items-center justify-center space-x-[42px] pb-[32px] pointer-events-none z-30">
+              <footer className="text-sm [writing-mode:vertical-lr] text-[#A5A5A5] pointer-events-auto">
+                © design by themefisher developed by gethugothemes
+              </footer>
+              <aside className="flex flex-col space-y-[10px] pointer-events-auto">
+                <Language />
+              </aside>
+            </div>
+          </section>
+        </main>
+      </body>
+    </html>
+  );
 }
