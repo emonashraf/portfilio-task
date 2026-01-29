@@ -11,7 +11,7 @@ export default function BlogSection() {
   return (
     <section className="min-h-screen pb-20">
       <div className="mb-12">
-        <h2 className="text-4xl md:text-5xl font-bold text-white">Blog</h2>
+        <h2>Blog</h2>
       </div>
       <div className="columns-1 md:columns-2 gap-8 space-y-8">
         {blogs.map((blog, idx) => (

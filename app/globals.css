@@ -20,52 +20,44 @@
   --color-primary: hsl(var(--primary));
   --color-secondary: hsl(var(--secondary));
 }
-.custom-scrollbar::-webkit-scrollbar {
-  width: 4px;
+
+@layer base {
+  h1 {
+    @apply text-white font-bold leading-tight tracking-tighter;
+    font-size: clamp(1.25rem, 0.813rem + 2.188vw, 3rem);
+  }
+
+  h2 {
+    @apply text-white font-extrabold leading-tight tracking-tight uppercase mb-8;
+    font-size:clamp(1.25rem, 0.813rem + 2.188vw, 3rem);
+  }
+
+  h3 {
+    @apply text-white font-bold flex items-center gap-3;
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+
+  h4 {
+    @apply text-primary font-bold tracking-wide;
+    font-size: clamp(1.1rem, 3vw, 1.4rem);
+  }
 }
 
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: var(--color-bg-1);
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--color-primary);
-  border-radius: 10px;
-  @apply bg-primary/60;
-}
- 
  
 @layer utilities {
   .clip-sidebar {
-    position: relative;
-    z-index: 1;
-
-    &::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
       height: 100%;
       width: 100%;
       background-color: var(--bg-1) !important;
       clip-path: polygon(100% 28%, 100% 100%, 0 100%, 0 19%);
       z-index: -1;
-    }
   }
      .clip-sidebar-right {
-       z-index: 1;
-  
-       &::before {
-         content: '';
-         position: absolute;
-         bottom: 0;
-         right: 0;
          height: 100%;
          width: 100%;
          background-color: var(--bg-1) !important;
-      clip-path: polygon(0 34%, 100% 23%, 100% 100%, 0% 100%);
+         clip-path: polygon(0 34%, 100% 23%, 100% 100%, 0% 100%);
          z-index: -1;
-       }
      }
      .text-gradient{
       @apply text-transparent bg-clip-text bg-gradient-to-l from-primary to-secondary font-bold;
@@ -93,8 +85,9 @@
                       linear-gradient(to right, var(--color-primary), var(--color-secondary));
   }
   .form-label{
-    @apply text-xl font-medium;
+    @apply text-sm md:text-base lg:text-xl xl:text-xl font-medium;
   }
+  
 }
 
 
@@ -109,9 +102,19 @@ img{
   height: auto;
   object-fit: cover;
 }
-h1,h2,h3,h4,h5,h6{
-  font-family: var(--font-sans);
- font-weight: 700;
+
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
 }
 
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--color-bg-1);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 10px;
+  @apply bg-primary/60;
+}
 

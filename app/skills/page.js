@@ -13,14 +13,14 @@ export default function ResumeSection() {
   return (
     <>
       <div className="relative mb-8">
-        <h2 className="text-4xl md:text-5xl font-bold">Skills</h2>
+        <h2>Skills</h2>
       </div>
 
       <div>
         {Data.skills.map((skill, idx) => (
           <div key={idx} className="mb-8 last:mb-0">
             <div className="flex justify-between items-center mb-2.5">
-              <span className="text-[#E3E3E3] font-medium text-2xl">
+              <span className="text-[#E3E3E3] font-medium text-base md:text-lg lg:text-xl xl:text-2xl">
                 {skill.name}
               </span>
               <span className="text-gradient">
@@ -28,7 +28,7 @@ export default function ResumeSection() {
               </span>
             </div>
 
-            <div className="w-full h-4 bg-primary/25 rounded-full overflow-hidden">
+            <div className="w-full h-1.5  sm:h-2 md:h-3 lg:h-4 bg-primary/25 rounded-full overflow-hidden">
               <div
                 className="h-full bg-gradient-to-r from-primary to-secondary transition-all duration-[2000ms] ease-in-out"
                 style={{

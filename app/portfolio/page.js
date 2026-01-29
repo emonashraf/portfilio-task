@@ -18,15 +18,15 @@ export default function PortfolioSection() {
 
   return (
     <section className="min-h-screen pb-10">
-      <div className="mb-8">
-        <h2 className="text-4xl md:text-5xl font-bold">Portfolio</h2>
+      <div className="md-4 md:mb-6 xl:mb-8">
+        <h2>Portfolio</h2>
       </div>
-      <div className="flex flex-wrap items-center px-6 bg-[#0F1110] rounded-lg mb-10 w-full shadow-[0_0_60px_rgba(255,255,255,0.05)] border border-white/5">
+      <div className="flex flex-wrap items-center px-6 bg-[#0F1110] rounded-lg mb-4 md:mb-6 lg:mb-8 xl:mb-10 w-full shadow-[0_0_60px_rgba(255,255,255,0.05)] border border-white/5">
         {categories.map((cat) => (
           <button
             key={cat}
             onClick={() => setFilter(cat)}
-            className="relative px-4.5 py-[22px] transition-all duration-300 group focus:outline-none">
+            className="relative px-1.5 sm:px-2 lg:px-3.5 xl:px-4.5 py-4 lg:py-5 xl:py-5.5 text-sm md:text-base transition-all duration-300 group focus:outline-none">
             <span
               className={`${
                 filter === cat ? 'text-primary' : 'white hover:text-primary'
