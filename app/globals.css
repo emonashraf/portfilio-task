@@ -38,8 +38,7 @@
 @layer utilities {
   .clip-sidebar {
     position: relative;
-    overflow: hidden;
-    z-index: 2;
+    z-index: 1;
 
     &::before {
       content: '';
@@ -50,12 +49,11 @@
       width: 100%;
       background-color: var(--bg-1) !important;
       clip-path: polygon(100% 28%, 100% 100%, 0 100%, 0 19%);
-    z-index: -1;
+      z-index: -1;
     }
   }
      .clip-sidebar-right {
-       overflow: hidden;
-       z-index: 2;
+       z-index: 1;
   
        &::before {
          content: '';
@@ -77,11 +75,27 @@
      }
 }
 
-/* @component utilities {
-  .btn{
-    @apply ;
+@layer components {
+  input, textarea {
+    @apply w-full py-[11px] !px-4 rounded-[10px] outline-none text-white transition-all duration-300 border-1 border-transparent;
+    background-color: #111111;
+    background-image: linear-gradient(var(--bg-2), var(--bg-2)), 
+                      linear-gradient(to right, color-mix(in srgb, var(--color-primary), transparent 65%), color-mix(in srgb, var(--color-secondary), transparent 65%));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    border-image: none;
   }
-} */
+
+  /* ফোকাস স্টেট */
+  input:focus, textarea:focus {
+    @apply shadow-[0_0_20px_rgba(255,145,77,0.2)];
+    background-image: linear-gradient(var(--bg-2), var(--bg-2)), 
+                      linear-gradient(to right, var(--color-primary), var(--color-secondary));
+  }
+  .form-label{
+    @apply text-xl font-medium;
+  }
+}
 
 
 body {

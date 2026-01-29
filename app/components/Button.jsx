@@ -44,7 +44,7 @@ const Button = ({
         const isExternal = href.startsWith('http') || download;
 
         return (
-            <a
+            <Link
                 href={href}
                 className={sharedClasses}
                 download={download ? "" : undefined}
@@ -52,7 +52,7 @@ const Button = ({
                 rel={isExternal ? "noopener noreferrer" : undefined}
             >
                 {buttonContent}
-            </a>
+            </Link>
         );
     }
 

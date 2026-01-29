@@ -4,7 +4,7 @@ import { RiDownload2Line } from 'react-icons/ri';
 
 export default function Home() {
     return (
-      <article className="max-w-xl">
+      <article className="max-w-xl relative z-3">
         <p className="text-transparent bg-clip-text bg-gradient-to-l from-primary to-secondary font-bold">
           INTRODUCTION
         </p>
